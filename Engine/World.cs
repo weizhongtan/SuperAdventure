@@ -23,6 +23,7 @@ namespace Engine
         public const int ITEM_ID_SPIDER_FANG = 8;
         public const int ITEM_ID_SPIDER_SILK = 9;
         public const int ITEM_ID_ADVENTURER_PASS = 10;
+        public const int ITEM_ID_MAX_HEALTH_INCREASER = 11;
 
         public const int MONSTER_ID_RAT = 1;
         public const int MONSTER_ID_SNAKE = 2;
@@ -40,6 +41,7 @@ namespace Engine
         public const int LOCATION_ID_FARM_FIELD = 7;
         public const int LOCATION_ID_BRIDGE = 8;
         public const int LOCATION_ID_SPIDER_FIELD = 9;
+        public const int LOCATION_ID_SECRET_HUT = 10;
 
         static World()
         {
@@ -61,6 +63,7 @@ namespace Engine
             Items.Add(new Item(ITEM_ID_SPIDER_FANG, "Spider fang", "Spider fangs"));
             Items.Add(new Item(ITEM_ID_SPIDER_SILK, "Spider silk", "Spider silks"));
             Items.Add(new Item(ITEM_ID_ADVENTURER_PASS, "Adventurer pass", "Adventurer passes"));
+            Items.Add(new MaxHealthIncreaser(ITEM_ID_MAX_HEALTH_INCREASER, "Max Health Increase Potion", "Max Health Increase Potions", 2));
         }
 
         private static void PopulateMonsters()
@@ -134,6 +137,9 @@ namespace Engine
             Location spiderField = new Location(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.");
             spiderField.MonsterLivingHere = MonsterByID(MONSTER_ID_GIANT_SPIDER);
 
+            Location secretHut = new Location(LOCATION_ID_SECRET_HUT, "Secret Hut", "You enter a small hut beneath the bridge, where an old man offers a variety of potions.");
+            secretHut.FreeItem = ItemByID(ITEM_ID_MAX_HEALTH_INCREASER);
+
             // Link the locations together
             home.LocationToNorth = townSquare;
 
@@ -157,6 +163,9 @@ namespace Engine
 
             bridge.LocationToWest = guardPost;
             bridge.LocationToEast = spiderField;
+            bridge.LocationToNorth = secretHut;
+
+            secretHut.LocationToSouth = bridge;
 
             spiderField.LocationToWest = bridge;
 
@@ -170,6 +179,7 @@ namespace Engine
             Locations.Add(farmersField);
             Locations.Add(bridge);
             Locations.Add(spiderField);
+            Locations.Add(secretHut);
         }
 
         public static Item ItemByID(int id)

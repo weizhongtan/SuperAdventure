@@ -26,6 +26,7 @@ namespace SuperAdventure
             _player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
 
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            lblMaxHitPoints.Text = _player.MaximumHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
             lblExperience.Text = _player.ExperiencePoints.ToString();
             lblLevel.Text = _player.Level.ToString();
@@ -181,6 +182,21 @@ namespace SuperAdventure
                 cboPotions.Visible = false;
                 btnUseWeapon.Visible = false;
                 btnUsePotion.Visible = false;
+
+                // show non combat items during non combat times
+                cboNonCombat.Visible = true;
+                btnUseNonCombat.Visible = true;
+            }
+
+            // Does the location have any free items?
+            if (newLocation.FreeItem != null)
+            {
+                if (!_player.HasCollectedFreeItem)
+                {
+                    rtbMessages.Text += "You find a " + newLocation.FreeItem.Name + Environment.NewLine;
+                    _player.AddItemToInventory(newLocation.FreeItem);
+                    _player.HasCollectedFreeItem = true;
+                }
             }
 
             // Refresh player's inventory list
@@ -191,6 +207,10 @@ namespace SuperAdventure
             UpdateWeaponListInUI();
             // Refresh player's potions combobox
             UpdatePotionListInUI();
+            // Refresh player's non combat combobox
+            UpdateNonCombatListInUI();
+
+            ScrollToBottomOfMessages();
         }
 
         private void UpdateInventoryListInUI()
@@ -285,6 +305,34 @@ namespace SuperAdventure
             }
         }
 
+        private void UpdateNonCombatListInUI()
+        {
+            List<MaxHealthIncreaser> nonCombatItems = new List<MaxHealthIncreaser>();
+            foreach (InventoryItem inventoryItem in _player.Inventory)
+            {
+                if (inventoryItem.Details is MaxHealthIncreaser)
+                {
+                    if (inventoryItem.Quantity > 0)
+                    {
+                        nonCombatItems.Add((MaxHealthIncreaser)inventoryItem.Details);
+                    }
+                }
+            }
+            if (nonCombatItems.Count == 0)
+            {
+                // The player doesn't have any non combat items, so hide the weapon combobox and "Use" button
+                cboNonCombat.Visible = false;
+                btnUseNonCombat.Visible = false;
+            }
+            else
+            {
+                cboNonCombat.DataSource = nonCombatItems;
+                cboNonCombat.DisplayMember = "Name";
+                cboNonCombat.ValueMember = "ID";
+                cboNonCombat.SelectedIndex = 0;
+            }
+        }
+
         private void btnUseWeapon_Click(object sender, EventArgs e)
         {
             // Get the currently selected weapon from the cboWeapons ComboBox
@@ -372,27 +420,33 @@ namespace SuperAdventure
             else
             {
                 // Monster is still alive
+                MonsterAttacks();
+            }
 
-                // Determine the amount of damage the monster does to the player
-                int damageToPlayer = RandomNumberGenerator.NumberBetween(0, _currentMonster.MaximumDamage);
+            ScrollToBottomOfMessages();
+        }
 
+        private void MonsterAttacks()
+        {
+            // Determine the amount of damage the monster does to the player
+            int damageToPlayer = RandomNumberGenerator.NumberBetween(0, _currentMonster.MaximumDamage);
+
+            // Display message
+            rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
+
+            // Subtract damage from player
+            _player.CurrentHitPoints -= damageToPlayer;
+
+            // Refresh player data in UI
+            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+
+            if (_player.CurrentHitPoints <= 0)
+            {
                 // Display message
-                rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
+                rtbMessages.Text += "Your were dismembered by the " + _currentMonster.Name + "." + Environment.NewLine;
 
-                // Subtract damage from player
-                _player.CurrentHitPoints -= damageToPlayer;
-
-                // Refresh player data in UI
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
-
-                if (_player.CurrentHitPoints <= 0)
-                {
-                    // Display message
-                    rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
-
-                    // Move player to "Home"
-                    MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
-                }
+                // Move player to "Home"
+                MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             }
         }
 
@@ -421,32 +475,52 @@ namespace SuperAdventure
             }
 
             // Display message
-            rtbMessages.Text += "You drink a " + potion.Name + Environment.NewLine;
+            rtbMessages.Text += "You drink a " + potion.Name + " and your health is restored by " + potion.AmountToHeal.ToString() + Environment.NewLine;
 
             // Monster gets their turn to attack
-
-            // Determine the amount of damage the monster does to the player
-            int damageToPlayer = RandomNumberGenerator.NumberBetween(0, _currentMonster.MaximumDamage);
-
-            // Display message
-            rtbMessages.Text += "The " + _currentMonster.Name + " did " + damageToPlayer.ToString() + " points of damage." + Environment.NewLine;
-
-            // Subtract damage from player
-            _player.CurrentHitPoints -= damageToPlayer;
-
-            if (_player.CurrentHitPoints <= 0)
-            {
-                // Display message
-                rtbMessages.Text += "The " + _currentMonster.Name + " killed you." + Environment.NewLine;
-
-                // Move player to "Home"
-                MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
-            }
+            MonsterAttacks();
 
             // Refresh player data in UI
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             UpdateInventoryListInUI();
             UpdatePotionListInUI();
-        }      
+
+            ScrollToBottomOfMessages();
+        }
+
+        private void ScrollToBottomOfMessages()
+        {
+            rtbMessages.SelectionStart = rtbMessages.Text.Length;
+            rtbMessages.ScrollToCaret();
+        }
+
+        private void btnUseNonCombat_Click(object sender, EventArgs e)
+        {
+            // grab item that has been selected and use it
+            MaxHealthIncreaser nonCombatItem = (MaxHealthIncreaser)cboNonCombat.SelectedItem;
+
+            // increase maximum hitpoints by amount shown by potion
+            _player.MaximumHitPoints += nonCombatItem.IncreaseHealthAmount;
+            _player.CurrentHitPoints = _player.MaximumHitPoints;
+
+            // Remove the potion from the player's inventory
+            foreach (InventoryItem ii in _player.Inventory)
+            {
+                if (ii.Details.ID == nonCombatItem.ID)
+                {
+                    ii.Quantity--;
+                    break;
+                }
+            }
+
+            // Display message
+            rtbMessages.Text += "You drink a " + nonCombatItem.Name + " and your maximum health is increased by " + nonCombatItem.IncreaseHealthAmount.ToString() + " points." + Environment.NewLine;
+
+            // Refresh player data in UI
+            lblMaxHitPoints.Text = _player.MaximumHitPoints.ToString();
+            UpdateInventoryListInUI();
+            UpdateNonCombatListInUI();
+
+            ScrollToBottomOfMessages();
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace Engine
         public Location CurrentLocation { get; set; }
         public List<InventoryItem> Inventory { get; set; }
         public List<PlayerQuest> Quests { get; set; }
+        public bool HasCollectedFreeItem { get; set; }
 
         public Player(int currentHitPoints, int maximumHitPoints, int gold, int experiencePoints, int level) : base(currentHitPoints, maximumHitPoints)
         {
@@ -55,6 +56,7 @@ namespace Engine
             }
             return false;
         }
+
         public bool CompletedThisQuest(Quest quest)
         {
             foreach (PlayerQuest playerQuest in Quests)
