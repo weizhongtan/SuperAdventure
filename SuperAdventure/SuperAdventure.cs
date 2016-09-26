@@ -67,10 +67,42 @@ namespace SuperAdventure
             _player.CurrentLocation = newLocation;
 
             // Show/hide available movement buttons
-            btnNorth.Visible = (newLocation.LocationToNorth != null);
-            btnEast.Visible = (newLocation.LocationToEast != null);
-            btnSouth.Visible = (newLocation.LocationToSouth != null);
-            btnWest.Visible = (newLocation.LocationToWest != null);
+            if (newLocation.LocationToNorth != null)
+            {
+                btnNorth.Visible = true;
+                btnNorth.Text = newLocation.LocationToNorth.Name;
+            }
+            else
+            {
+                btnNorth.Visible = false;
+            }
+            if (newLocation.LocationToEast != null)
+            {
+                btnEast.Visible = true;
+                btnEast.Text = newLocation.LocationToEast.Name;
+            }
+            else
+            {
+                btnEast.Visible = false;
+            }
+            if (newLocation.LocationToSouth != null)
+            {
+                btnSouth.Visible = true;
+                btnSouth.Text = newLocation.LocationToSouth.Name;
+            }
+            else
+            {
+                btnSouth.Visible = false;
+            }
+            if (newLocation.LocationToWest != null)
+            {
+                btnWest.Visible = true;
+                btnWest.Text = newLocation.LocationToWest.Name;
+            }
+            else
+            {
+                btnWest.Visible = false;
+            }
 
             // Display current location name and description
             rtbLocation.Text = newLocation.Name + Environment.NewLine;
