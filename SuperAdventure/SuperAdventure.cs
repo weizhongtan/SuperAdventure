@@ -21,10 +21,16 @@ namespace SuperAdventure
         {
             InitializeComponent();
 
-            _player = new Player(10, 10, 20, 0, 1);
+            _player = new Player(10, 10, 20, 0);
             MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             _player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
 
+            UpdatePlayerStats();
+        }
+
+        public void UpdatePlayerStats()
+        {
+            // Refresh player information and inventory controls
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblMaxHitPoints.Text = _player.MaximumHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
@@ -66,7 +72,7 @@ namespace SuperAdventure
             // Update the player's current location
             _player.CurrentLocation = newLocation;
 
-            // Show/hide available movement buttons
+            // Show/hide/rename available movement buttons
             if (newLocation.LocationToNorth != null)
             {
                 btnNorth.Visible = true;
@@ -241,6 +247,8 @@ namespace SuperAdventure
             UpdatePotionListInUI();
             // Refresh player's non combat combobox
             UpdateNonCombatListInUI();
+            // Refresh player's stats
+            UpdatePlayerStats();
 
             ScrollToBottomOfMessages();
         }
@@ -434,11 +442,7 @@ namespace SuperAdventure
                 }
 
                 // Refresh player information and inventory controls
-                lblHitPoints.Text = _player.CurrentHitPoints.ToString();
-                lblGold.Text = _player.Gold.ToString();
-                lblExperience.Text = _player.ExperiencePoints.ToString();
-                lblLevel.Text = _player.Level.ToString();
-
+                UpdatePlayerStats();
                 UpdateInventoryListInUI();
                 UpdateWeaponListInUI();
                 UpdatePotionListInUI();
@@ -470,7 +474,7 @@ namespace SuperAdventure
             _player.CurrentHitPoints -= damageToPlayer;
 
             // Refresh player data in UI
-            lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+            UpdatePlayerStats();
 
             if (_player.CurrentHitPoints <= 0)
             {
@@ -480,6 +484,8 @@ namespace SuperAdventure
                 // Move player to "Home"
                 MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             }
+
+            ScrollToBottomOfMessages();
         }
 
         private void btnUsePotion_Click(object sender, EventArgs e)
@@ -513,6 +519,7 @@ namespace SuperAdventure
             MonsterAttacks();
 
             // Refresh player data in UI
+            UpdatePlayerStats();
             UpdateInventoryListInUI();
             UpdatePotionListInUI();
 
