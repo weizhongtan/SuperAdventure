@@ -223,9 +223,9 @@
             // 
             // btnWest
             // 
-            this.btnWest.Location = new System.Drawing.Point(347, 476);
+            this.btnWest.Location = new System.Drawing.Point(415, 476);
             this.btnWest.Name = "btnWest";
-            this.btnWest.Size = new System.Drawing.Size(150, 23);
+            this.btnWest.Size = new System.Drawing.Size(75, 23);
             this.btnWest.TabIndex = 16;
             this.btnWest.Text = "West";
             this.btnWest.UseVisualStyleBackColor = true;
@@ -233,9 +233,9 @@
             // 
             // btnSouth
             // 
-            this.btnSouth.Location = new System.Drawing.Point(452, 505);
+            this.btnSouth.Location = new System.Drawing.Point(493, 504);
             this.btnSouth.Name = "btnSouth";
-            this.btnSouth.Size = new System.Drawing.Size(150, 23);
+            this.btnSouth.Size = new System.Drawing.Size(75, 23);
             this.btnSouth.TabIndex = 17;
             this.btnSouth.Text = "South";
             this.btnSouth.UseVisualStyleBackColor = true;
@@ -243,9 +243,9 @@
             // 
             // btnEast
             // 
-            this.btnEast.Location = new System.Drawing.Point(557, 476);
+            this.btnEast.Location = new System.Drawing.Point(570, 476);
             this.btnEast.Name = "btnEast";
-            this.btnEast.Size = new System.Drawing.Size(150, 23);
+            this.btnEast.Size = new System.Drawing.Size(75, 23);
             this.btnEast.TabIndex = 18;
             this.btnEast.Text = "East";
             this.btnEast.UseVisualStyleBackColor = true;
@@ -253,9 +253,9 @@
             // 
             // btnNorth
             // 
-            this.btnNorth.Location = new System.Drawing.Point(452, 446);
+            this.btnNorth.Location = new System.Drawing.Point(493, 446);
             this.btnNorth.Name = "btnNorth";
-            this.btnNorth.Size = new System.Drawing.Size(150, 23);
+            this.btnNorth.Size = new System.Drawing.Size(75, 23);
             this.btnNorth.TabIndex = 19;
             this.btnNorth.Text = "North";
             this.btnNorth.UseVisualStyleBackColor = true;

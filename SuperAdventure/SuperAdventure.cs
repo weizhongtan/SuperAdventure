@@ -72,6 +72,7 @@ namespace SuperAdventure
             // Update the player's current location
             _player.CurrentLocation = newLocation;
 
+<<<<<<< HEAD
             // Show/hide/rename available movement buttons
             if (newLocation.LocationToNorth != null)
             {
@@ -109,6 +110,13 @@ namespace SuperAdventure
             {
                 btnWest.Visible = false;
             }
+=======
+            // Show/hide available movement buttons
+            btnNorth.Visible = (newLocation.LocationToNorth != null);
+            btnEast.Visible = (newLocation.LocationToEast != null);
+            btnSouth.Visible = (newLocation.LocationToSouth != null);
+            btnWest.Visible = (newLocation.LocationToWest != null);
+>>>>>>> parent of 04171eb... allowed buttons to dynamically change depending on relative locations
 
             // Display current location name and description
             rtbLocation.Text = newLocation.Name + Environment.NewLine;
