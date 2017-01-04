@@ -20,3 +20,6 @@ C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\Supe
 C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.Properties.Resources.resources
 C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.SuperAdventure.resources
 C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csproj.GenerateResource.Cache
+D:\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe.config
+D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
+D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
