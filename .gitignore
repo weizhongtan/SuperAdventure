@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.vs/SuperAdventure/v14/.suo
+*.suo
+Engine/bin/Debug/Engine.dll
+*.dll
+Engine/bin/Debug/Engine.pdb
+*.dll
+SuperAdventure/obj/Debug/SuperAdventure.csproj.GenerateResource.Cache
+*.cache
+SuperAdventure/obj/Debug/SuperAdventure.exe
+*.pdb
+SuperAdventure/bin/Debug/SuperAdventure.pdb
+SuperAdventure/bin/Debug/PlayerData.xml
