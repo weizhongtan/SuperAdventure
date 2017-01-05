@@ -223,9 +223,11 @@
             // 
             // btnWest
             // 
+            this.btnWest.AutoSize = true;
+            this.btnWest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnWest.Location = new System.Drawing.Point(415, 476);
             this.btnWest.Name = "btnWest";
-            this.btnWest.Size = new System.Drawing.Size(75, 23);
+            this.btnWest.Size = new System.Drawing.Size(42, 23);
             this.btnWest.TabIndex = 16;
             this.btnWest.Text = "West";
             this.btnWest.UseVisualStyleBackColor = true;
@@ -233,9 +235,11 @@
             // 
             // btnSouth
             // 
+            this.btnSouth.AutoSize = true;
+            this.btnSouth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSouth.Location = new System.Drawing.Point(493, 504);
             this.btnSouth.Name = "btnSouth";
-            this.btnSouth.Size = new System.Drawing.Size(75, 23);
+            this.btnSouth.Size = new System.Drawing.Size(45, 23);
             this.btnSouth.TabIndex = 17;
             this.btnSouth.Text = "South";
             this.btnSouth.UseVisualStyleBackColor = true;
@@ -243,9 +247,11 @@
             // 
             // btnEast
             // 
+            this.btnEast.AutoSize = true;
+            this.btnEast.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEast.Location = new System.Drawing.Point(570, 476);
             this.btnEast.Name = "btnEast";
-            this.btnEast.Size = new System.Drawing.Size(75, 23);
+            this.btnEast.Size = new System.Drawing.Size(38, 23);
             this.btnEast.TabIndex = 18;
             this.btnEast.Text = "East";
             this.btnEast.UseVisualStyleBackColor = true;
@@ -253,9 +259,11 @@
             // 
             // btnNorth
             // 
+            this.btnNorth.AutoSize = true;
+            this.btnNorth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnNorth.Location = new System.Drawing.Point(493, 446);
             this.btnNorth.Name = "btnNorth";
-            this.btnNorth.Size = new System.Drawing.Size(75, 23);
+            this.btnNorth.Size = new System.Drawing.Size(43, 23);
             this.btnNorth.TabIndex = 19;
             this.btnNorth.Text = "North";
             this.btnNorth.UseVisualStyleBackColor = true;
