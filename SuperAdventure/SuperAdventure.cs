@@ -66,6 +66,7 @@ namespace SuperAdventure
                 rtbMessages.Text += "You must have a " +
                 newLocation.ItemRequiredToEnter.Name +
                 " to enter this location." + Environment.NewLine;
+                ScrollToBottomOfMessages();
                 return;
             }
 
