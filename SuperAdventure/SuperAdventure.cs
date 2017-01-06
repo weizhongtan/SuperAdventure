@@ -599,5 +599,16 @@ namespace SuperAdventure
         {
             _player.CurrentWeapon = (Weapon)cboWeapons.SelectedItem;
         }
+
+        private void dgvQuests_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach(PlayerQuest playerQuest in _player.Quests)
+            {
+                if (e.RowIndex == playerQuest.Details.ID - 1)
+                {
+                    rtbMessages.Text += "Quest description: " + playerQuest.Details.Description + Environment.NewLine + Environment.NewLine;
+                }
+            }
+        }
     }
 }

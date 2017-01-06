@@ -97,7 +97,7 @@
             // lblHitPoints
             // 
             this.lblHitPoints.AutoSize = true;
-            this.lblHitPoints.Location = new System.Drawing.Point(112, 22);
+            this.lblHitPoints.Location = new System.Drawing.Point(112, 20);
             this.lblHitPoints.Name = "lblHitPoints";
             this.lblHitPoints.Size = new System.Drawing.Size(0, 13);
             this.lblHitPoints.TabIndex = 0;
@@ -192,14 +192,15 @@
             this.dgvQuests.AllowUserToResizeRows = false;
             this.dgvQuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQuests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvQuests.Enabled = false;
             this.dgvQuests.Location = new System.Drawing.Point(16, 446);
             this.dgvQuests.MultiSelect = false;
             this.dgvQuests.Name = "dgvQuests";
             this.dgvQuests.ReadOnly = true;
             this.dgvQuests.RowHeadersVisible = false;
+            this.dgvQuests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvQuests.Size = new System.Drawing.Size(312, 189);
             this.dgvQuests.TabIndex = 13;
+            this.dgvQuests.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQuests_CellContentClick);
             // 
             // btnUseWeapon
             // 
@@ -299,7 +300,7 @@
             // lblMaxHitPoints
             // 
             this.lblMaxHitPoints.AutoSize = true;
-            this.lblMaxHitPoints.Location = new System.Drawing.Point(177, 22);
+            this.lblMaxHitPoints.Location = new System.Drawing.Point(177, 20);
             this.lblMaxHitPoints.Name = "lblMaxHitPoints";
             this.lblMaxHitPoints.Size = new System.Drawing.Size(0, 13);
             this.lblMaxHitPoints.TabIndex = 23;
@@ -307,7 +308,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(127, 20);
+            this.label8.Location = new System.Drawing.Point(134, 20);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 13);
             this.label8.TabIndex = 24;
