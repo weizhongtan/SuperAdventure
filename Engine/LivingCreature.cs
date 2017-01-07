@@ -17,7 +17,13 @@ namespace Engine
             set { _currentHitPoints = value; OnPropertyChanged("CurrentHitPoints"); }
         }
 
-        public int MaximumHitPoints { get; set; }
+        private int _maximumHitPoints;
+
+        public int MaximumHitPoints
+        {
+            get { return _maximumHitPoints; }
+            set { _maximumHitPoints = value; OnPropertyChanged("MaximumHitPoints"); }
+        }
 
         public LivingCreature(int currentHitPoints, int maximumHitPoints)
         {
