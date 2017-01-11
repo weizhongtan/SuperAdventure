@@ -54,7 +54,9 @@ Temporary Items
 x64/
 x86/
 bld/
-[Bb]in/
-[Oo]bj/
+Engine/[Bb]in/
+Engine/[Oo]bj/
+SuperAdventure/[Bb]in/
+SuperAdventure/[Oo]bj/
 [Ll]og/ 
 *.suo

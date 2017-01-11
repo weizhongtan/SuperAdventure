@@ -41,12 +41,33 @@ namespace SuperAdventure
             lblExperience.DataBindings.Add("Text", _player, "ExperiencePoints");
             lblLevel.DataBindings.Add("Text", _player, "Level");
 
-            // Bind the datagrid view to the player inventory
+            // Bind the inventory datagridview to the player inventory
             dgvInventory.RowHeadersVisible = false;
             dgvInventory.AutoGenerateColumns = false;
             dgvInventory.DataSource = _player.Inventory;
-            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", Width = 197, DataPropertyName = "Description" });
-            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantity", DataPropertyName = "Quantity" });
+            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn {
+                HeaderText = "Name",
+                Width = 197,
+                DataPropertyName = "Description"
+            });
+            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn {
+                HeaderText = "Quantity",
+                DataPropertyName = "Quantity"
+            });
+
+            // Bind the quests datagridview to the player quest list
+            dgvQuests.RowHeadersVisible = false;
+            dgvQuests.AutoGenerateColumns = false;
+            dgvQuests.DataSource = _player.Quests;
+            dgvQuests.Columns.Add(new DataGridViewTextBoxColumn {
+                HeaderText = "Name",
+                Width = 197,
+                DataPropertyName = "Name"
+            });
+            dgvQuests.Columns.Add(new DataGridViewTextBoxColumn {
+                HeaderText = "Done?",
+                DataPropertyName = "Done"
+            });
         }
 
         private void btnNorth_Click(object sender, EventArgs e)
@@ -252,8 +273,6 @@ namespace SuperAdventure
                 }
             }
 
-            // Refresh player's quest list
-            UpdateQuestListInUI();
             // Refresh player's weapons combobox
             UpdateWeaponListInUI();
             // Refresh player's potions combobox
@@ -262,22 +281,6 @@ namespace SuperAdventure
             UpdateNonCombatListInUI();
 
             ScrollToBottomOfMessages();
-        }
-
-        private void UpdateQuestListInUI()
-        {
-            dgvQuests.RowHeadersVisible = false;
-            dgvQuests.ColumnCount = 2;
-            dgvQuests.Columns[0].Name = "Name";
-            dgvQuests.Columns[0].Width = 197;
-            dgvQuests.Columns[1].Name = "Done?";
-            dgvQuests.Rows.Clear();
-            foreach (PlayerQuest playerQuest in _player.Quests)
-            {
-                dgvQuests.Rows.Add(new[] {
-                    playerQuest.Details.Name,
-                    playerQuest.IsCompleted.ToString() });
-            }
         }
 
         private void UpdateWeaponListInUI()
@@ -576,6 +579,7 @@ namespace SuperAdventure
                 if (e.RowIndex == playerQuest.Details.ID - 1)
                 {
                     rtbMessages.Text += "Quest description: " + playerQuest.Details.Description + Environment.NewLine + Environment.NewLine;
+                    ScrollToBottomOfMessages();
                 }
             }
         }
