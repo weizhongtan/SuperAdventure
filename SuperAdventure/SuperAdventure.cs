@@ -40,6 +40,13 @@ namespace SuperAdventure
             lblGold.DataBindings.Add("Text", _player, "Gold");
             lblExperience.DataBindings.Add("Text", _player, "ExperiencePoints");
             lblLevel.DataBindings.Add("Text", _player, "Level");
+
+            // Bind the datagrid view to the player inventory
+            dgvInventory.RowHeadersVisible = false;
+            dgvInventory.AutoGenerateColumns = false;
+            dgvInventory.DataSource = _player.Inventory;
+            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", Width = 197, DataPropertyName = "Description" });
+            dgvInventory.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantity", DataPropertyName = "Quantity" });
         }
 
         private void btnNorth_Click(object sender, EventArgs e)
@@ -245,8 +252,6 @@ namespace SuperAdventure
                 }
             }
 
-            // Refresh player's inventory list
-            UpdateInventoryListInUI();
             // Refresh player's quest list
             UpdateQuestListInUI();
             // Refresh player's weapons combobox
@@ -257,25 +262,6 @@ namespace SuperAdventure
             UpdateNonCombatListInUI();
 
             ScrollToBottomOfMessages();
-        }
-
-        private void UpdateInventoryListInUI()
-        {
-            dgvInventory.RowHeadersVisible = false;
-            dgvInventory.ColumnCount = 2;
-            dgvInventory.Columns[0].Name = "Name";
-            dgvInventory.Columns[0].Width = 197;
-            dgvInventory.Columns[1].Name = "Quantity";
-            dgvInventory.Rows.Clear();
-            foreach (InventoryItem inventoryItem in _player.Inventory)
-            {
-                if (inventoryItem.Quantity > 0)
-                {
-                    dgvInventory.Rows.Add(new[] {
-                        inventoryItem.Details.Name,
-                        inventoryItem.Quantity.ToString() });
-                }
-            }
         }
 
         private void UpdateQuestListInUI()
@@ -461,7 +447,6 @@ namespace SuperAdventure
                 }
 
                 // Refresh player information and inventory controls
-                UpdateInventoryListInUI();
                 UpdateWeaponListInUI();
                 UpdatePotionListInUI();
 
@@ -534,7 +519,6 @@ namespace SuperAdventure
             MonsterAttacks();
 
             // Refresh player data in UI
-            UpdateInventoryListInUI();
             UpdatePotionListInUI();
 
             ScrollToBottomOfMessages();
@@ -564,7 +548,6 @@ namespace SuperAdventure
 
             // Refresh player data in UI
             lblMaxHitPoints.Text = _player.MaximumHitPoints.ToString();
-            UpdateInventoryListInUI();
             UpdateNonCombatListInUI();
 
             ScrollToBottomOfMessages();
