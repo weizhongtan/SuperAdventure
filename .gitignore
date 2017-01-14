@@ -61,3 +61,4 @@ SuperAdventure/[Oo]bj/
 [Ll]og/ 
 *.suo
 .vs/SuperAdventure/v14/.suo
+SuperAdventure/bin/Debug/PlayerData.xml
