@@ -151,7 +151,7 @@ namespace Engine
             catch
             {
                 // If there was an error with the XML data, return a default player object
-                return Player.CreateDefaultPlayer();
+                return CreateDefaultPlayer();
             }
         }
 
