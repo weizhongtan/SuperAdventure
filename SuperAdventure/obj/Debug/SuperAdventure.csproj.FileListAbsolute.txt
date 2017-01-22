@@ -1,28 +1,4 @@
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe.config
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.pdb
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\bin\Debug\Engine.dll
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\bin\Debug\Engine.pdb
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csprojResolveAssemblyReference.cache
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.Properties.Resources.resources
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.SuperAdventure.resources
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csproj.GenerateResource.Cache
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
-c:\users\wei-zhong\documents\visual studio 2015\Projects\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe.config
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.pdb
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\Engine.dll
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\Engine.pdb
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csprojResolveAssemblyReference.cache
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.Properties.Resources.resources
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.SuperAdventure.resources
-C:\Users\Wei-Zhong\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csproj.GenerateResource.Cache
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe.config
-D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
-D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.exe
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\SuperAdventure.pdb
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\bin\Debug\Engine.dll
@@ -31,3 +7,5 @@ D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.cspro
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.Properties.Resources.resources
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.SuperAdventure.resources
 D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.csproj.GenerateResource.Cache
+D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.exe
+D:\Documents\GitHub\SuperAdventure\SuperAdventure\obj\Debug\SuperAdventure.pdb
