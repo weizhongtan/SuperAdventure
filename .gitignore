@@ -56,8 +56,8 @@ x86/
 bld/
 Engine/[Bb]in/
 Engine/[Oo]bj/
-SuperAdventure/[Bb]in/
-SuperAdventure/[Oo]bj/
+SuperAdventure/bin/
+SuperAdventure/obj/
 [Ll]og/ 
 *.suo
 .vs/SuperAdventure/v14/.suo
